@@ -22,7 +22,7 @@ export function buildWebpackConfig(
       path: build,
       clean: true,
     },
-    plugins: buildPlugins(html),
+    plugins: buildPlugins(html, isDev),
     module: {
       rules: buildLoaders(options),
     },
