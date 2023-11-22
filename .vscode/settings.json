@@ -1,3 +1,12 @@
 {
-	"react-i18n.i18nPaths": "public/locales,src/shared/config/i18n"
+	"react-i18n.i18nPaths": "public/locales,src/shared/config/i18n",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"eslint.validate": [
+		"javascript",
+		"typescript",
+		"react"
+	],
+	"eslint.codeActionsOnSave.rules": null
 }
