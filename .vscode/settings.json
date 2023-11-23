@@ -8,5 +8,9 @@
 		"typescript",
 		"react"
 	],
-	"eslint.codeActionsOnSave.rules": null
+	"eslint.codeActionsOnSave.rules": null,
+	"i18n-ally.localesPaths": [
+		"public/locales",
+		"src/shared/config/i18n"
+	]
 }
