@@ -3,6 +3,8 @@
  * https://jestjs.io/docs/configuration
 */
 
+import path from 'path';
+
 const config = {
     clearMocks: true,
     testEnvironment: 'jsdom',
@@ -21,11 +23,20 @@ const config = {
     ],
     moduleDirectories: [
         'node_modules',
+        'src',
+    ],
+    modulePaths: [
+        '<rootDir>src',
     ],
     rootDir: '../../',
     testMatch: [
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
+    setupFilesAfterEnv: ['<rootDir>config/jest/jest-setup.ts'],
+    moduleNameMapper: {
+        '\\.s?css$': 'identity-obj-proxy',
+        '\\.svg': path.resolve(__dirname, './jestEmptyComponents.tsx'),
+    },
     // All imported modules in your tests should be mocked automatically
     // automock: false,
 
