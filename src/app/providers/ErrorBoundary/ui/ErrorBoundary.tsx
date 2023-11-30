@@ -1,12 +1,12 @@
 import React, { ErrorInfo, ReactNode, Suspense } from 'react';
 
 interface ErrorBoundaryProps {
-	children: ReactNode;
-	fallback: ReactNode;
+  children: ReactNode;
+  fallback: ReactNode;
 }
 
 interface ErrorBoundaryState {
-	hasError: boolean
+  hasError: boolean
 }
 
 class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
