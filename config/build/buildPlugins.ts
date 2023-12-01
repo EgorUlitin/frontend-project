@@ -8,7 +8,7 @@ export function buildPlugins(
     path: string,
     isDev: boolean,
 ): webpack.WebpackPluginInstance[] {
-    return [
+    const plugins = [
         new HTMLWebpackPlugin({
             template: path,
         }),
@@ -20,10 +20,18 @@ export function buildPlugins(
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
         }),
-        new webpack.HotModuleReplacementPlugin(),
-        new ReactRefreshWebpackPlugin(),
-        new BundleAnalyzerPlugin({
-            openAnalyzer: false,
-        }),
+        // new webpack.HotModuleReplacementPlugin(),
+        // new ReactRefreshWebpackPlugin(),
+        // new BundleAnalyzerPlugin({
+        //     openAnalyzer: false,
+        // }),
     ];
+
+    if (isDev) {
+        plugins.push(new webpack.HotModuleReplacementPlugin());
+        plugins.push(new ReactRefreshWebpackPlugin());
+        plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
+    }
+
+    return plugins;
 }
