@@ -8,7 +8,7 @@ const MainPage = () => {
     return (
         <div>
             {t('Основная страница')}
-            <Button theme={ThemeButton.OUTLINE}>My button main</Button>
+            {/* <Button theme={ThemeButton.OUTLINE}>My button main</Button> */}
         </div>
     );
 };
