@@ -9,21 +9,20 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-				node-version: [ 17.x ]
-
-			steps:
-				- uses: actions/checkout@v2
-				- name: Starting Node.js ${{ matrix.nod-version }}
-					uses: actions/setup-node@v1
-					with:
-						node-version: ${{ matrix.node-version }}
-				- name: install modules
-					run: npm install
-				- name: build project
-					run: npm run build:prod
-				- name: linting typescript
-					run: npm run lint
-				- name: linting style
-					run: lint:stylelint
-				- name: test unit
-					run: npm run test:unit
+        node-version: [17.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Starting Node.js ${{ matrix.nod-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: install modules
+        run: npm install
+      - name: build project
+        run: npm run build:prod
+      - name: linting typescript
+        run: npm run lint
+      - name: linting style
+        run: lint:stylelint
+      - name: test unit
+        run: npm run test:unit
