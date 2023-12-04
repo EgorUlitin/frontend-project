@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { Sidebar } from './Sidebar';
 
 const meta: Meta<typeof Sidebar> = {
@@ -17,6 +18,11 @@ const meta: Meta<typeof Sidebar> = {
             <ThemeDecorator theme={Theme.LIGHT}>
                 <Story />
             </ThemeDecorator>
+        ),
+        (Story) => (
+            <RouterDecorator>
+                <Story />
+            </RouterDecorator>
         ),
     ],
 };
