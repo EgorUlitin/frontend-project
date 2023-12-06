@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLinkTheme, AppLink } from 'shared/ui/AppLink/AppLink';
 import { useTranslation } from 'react-i18next';
 import { Modal } from 'shared/ui/Modal/Modal';
 import { useCallback, useState } from 'react';
@@ -27,7 +26,12 @@ export const Navbar = ({ className }: NavbarProps) => {
             >
                 {t('Войти')}
             </Button>
-            <Modal isOpen={isAutModal} onClose={onToggleModal}> Modal content </Modal>
+            <Modal
+                isOpen={isAutModal}
+                onClose={onToggleModal}
+            >
+                {t('Lorem')}
+            </Modal>
         </div>
     );
 };
