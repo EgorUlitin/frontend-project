@@ -6,14 +6,17 @@ import { PageError } from 'widgets/PageError';
 import App from './app/App';
 import 'shared/config/i18n/i18n';
 import 'app/styles/index.scss';
+import { StoreProvider } from './app/providers/StoreProvider';
 
 render(
-    <BrowserRouter>
-        <ErrorBoundary fallback={<PageError />}>
-            <ThemeProvider>
-                <App />
-            </ThemeProvider>
-        </ErrorBoundary>
-    </BrowserRouter>,
+    <StoreProvider>
+        <BrowserRouter>
+            <ErrorBoundary fallback={<PageError />}>
+                <ThemeProvider>
+                    <App />
+                </ThemeProvider>
+            </ErrorBoundary>
+        </BrowserRouter>
+    </StoreProvider>,
     document.getElementById('root'),
 );

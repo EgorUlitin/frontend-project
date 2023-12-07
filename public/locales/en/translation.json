@@ -10,5 +10,8 @@
 	"Переключатель":"Toggle",
 	"Короткий язык": "EN",
 	"Войти": "Entry",
-	"Lorem": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quaerat doloribus reiciendis impedit ad totam."
+	"Lorem": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quaerat doloribus reiciendis impedit ad totam.",
+	"Инкримент": "increment",
+	"Дикримент":"decrement"
+
 }
