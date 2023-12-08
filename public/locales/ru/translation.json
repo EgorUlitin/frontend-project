@@ -12,5 +12,7 @@
 	"Войти": "Войти",
 	"Lorem": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quaerat doloribus reiciendis impedit ad totam.",
 	"Инкримент": "инкримент",
-	"Дикримент": "дикримент"
+	"Дикримент": "дикримент",
+	"Введите username": "Введите username",
+	"Введите пароль":"Введите пароль"
 }
