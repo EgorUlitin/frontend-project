@@ -69,7 +69,6 @@ export const Input = memo(({
                     />
                 )}
             </div>
-
         </div>
     );
 });
