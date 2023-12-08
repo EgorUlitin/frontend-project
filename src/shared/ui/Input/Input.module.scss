@@ -24,6 +24,26 @@
     position: relative;
 }
 
+// .caret {
+//   animation: blink 1s step-end infinite;
+//   border-bottom: 2px solid var(--primary-color);
+//         position: absolute;
+//     bottom: 0;
+//     left: 0;
+//         height: 3px;
+//     width: 9px;
+// }
+
+// @keyframes blink {
+//   from,
+//   to {
+//     border-color: transparent;
+//   }
+//   50% {
+//     border-color: var(--primary-color);
+//   }
+// }
+
 .caret {
     height: 3px;
     width: 9px;
