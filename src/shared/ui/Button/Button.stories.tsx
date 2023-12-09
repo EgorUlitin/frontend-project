@@ -9,11 +9,6 @@ const meta: Meta<typeof Button> = {
     component: Button,
     decorators: [
         (Story) => (
-            <StyleDecorator>
-                <Story />
-            </StyleDecorator>
-        ),
-        (Story) => (
             <ThemeDecorator theme={Theme.LIGHT}>
                 <Story />
             </ThemeDecorator>
@@ -118,5 +113,13 @@ export const SquareSizeXL: Story = {
         theme: ButtonTheme.BACKGROUND_INVERTED,
         square: true,
         size: ButtonSize.XL,
+    },
+};
+
+export const Disabled: Story = {
+    args: {
+        children: 'My Button DISABLED',
+        disabled: true,
+        theme: ButtonTheme.OUTLINE,
     },
 };

@@ -10,11 +10,6 @@ const meta: Meta<typeof AboutPage> = {
     component: AboutPage,
     decorators: [
         (Story) => (
-            <StyleDecorator>
-                <Story />
-            </StyleDecorator>
-        ),
-        (Story) => (
             <RouterDecorator>
                 <Story />
             </RouterDecorator>

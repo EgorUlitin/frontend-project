@@ -10,11 +10,6 @@ const meta: Meta<typeof Sidebar> = {
     component: Sidebar,
     decorators: [
         (Story) => (
-            <StyleDecorator>
-                <Story />
-            </StyleDecorator>
-        ),
-        (Story) => (
             <ThemeDecorator theme={Theme.LIGHT}>
                 <Story />
             </ThemeDecorator>

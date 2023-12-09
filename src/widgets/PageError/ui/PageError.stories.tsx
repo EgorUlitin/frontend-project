@@ -10,14 +10,14 @@ const meta: Meta<typeof PageError> = {
     component: PageError,
     decorators: [
         (Story) => (
-            <StyleDecorator>
-                <Story />
-            </StyleDecorator>
-        ),
-        (Story) => (
             <RouterDecorator>
                 <Story />
             </RouterDecorator>
+        ),
+        (Story) => (
+            <StyleDecorator>
+                <Story />
+            </StyleDecorator>
         ),
     ],
 };

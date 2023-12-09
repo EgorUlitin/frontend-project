@@ -9,10 +9,13 @@
 	"О сайте": "About",
 	"Переключатель":"Toggle",
 	"Короткий язык": "EN",
-	"Войти": "Entry",
+	"Войти": "Login",
 	"Lorem": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quaerat doloribus reiciendis impedit ad totam.",
 	"Инкримент": "increment",
 	"Дикримент":"decrement",
 	"Введите username":"Enter username",
-	"Введите пароль":"Enter password"
+	"Введите пароль":"Enter password",
+	"Форма авторизации": "Authorization form",
+	"Вы ввели неверный логин или пароль": "wrong login or password",
+	"Выйти": "Logout"
 }

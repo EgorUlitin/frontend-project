@@ -10,11 +10,6 @@ const meta: Meta<typeof ThemeSwitcher> = {
     component: ThemeSwitcher,
     decorators: [
         (Story) => (
-            <StyleDecorator>
-                <Story />
-            </StyleDecorator>
-        ),
-        (Story) => (
             <RouterDecorator>
                 <Story />
             </RouterDecorator>

@@ -10,11 +10,6 @@ const meta: Meta<typeof Loader> = {
     component: Loader,
     decorators: [
         (Story) => (
-            <StyleDecorator>
-                <Story />
-            </StyleDecorator>
-        ),
-        (Story) => (
             <RouterDecorator>
                 <Story />
             </RouterDecorator>

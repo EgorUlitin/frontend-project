@@ -10,11 +10,6 @@ const meta: Meta<typeof AppLink> = {
     component: AppLink,
     decorators: [
         (Story) => (
-            <StyleDecorator>
-                <Story />
-            </StyleDecorator>
-        ),
-        (Story) => (
             <RouterDecorator>
                 <Story />
             </RouterDecorator>

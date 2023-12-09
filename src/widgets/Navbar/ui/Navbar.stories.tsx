@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Navbar } from './Navbar';
 
 const meta: Meta<typeof Navbar> = {
@@ -10,14 +10,20 @@ const meta: Meta<typeof Navbar> = {
     component: Navbar,
     decorators: [
         (Story) => (
-            <StyleDecorator>
-                <Story />
-            </StyleDecorator>
-        ),
-        (Story) => (
             <RouterDecorator>
                 <Story />
             </RouterDecorator>
+        ),
+        (Story) => (
+            <StoreDecorator state={{
+                loginForm: {
+                    username: '123',
+                    password: '123',
+                },
+            }}
+            >
+                <Story />
+            </StoreDecorator>
         ),
     ],
 };
@@ -26,9 +32,6 @@ export default meta;
 type Story = StoryObj<typeof Navbar>;
 
 export const Light: Story = {
-    args: {
-
-    },
     decorators: [
         (Story) => (
             <ThemeDecorator theme={Theme.LIGHT}>
@@ -39,14 +42,24 @@ export const Light: Story = {
 };
 
 export const Dark: Story = {
-    args: {
-
-    },
     decorators: [
         (Story) => (
             <ThemeDecorator theme={Theme.DARK}>
                 <Story />
             </ThemeDecorator>
+        ),
+    ],
+};
+
+export const AuthNavbar: Story = {
+    decorators: [
+        (Story) => (
+            <StoreDecorator state={{
+                user: { authData: {} },
+            }}
+            >
+                <Story />
+            </StoreDecorator>
         ),
     ],
 };
