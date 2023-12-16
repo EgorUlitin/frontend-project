@@ -63,8 +63,8 @@ export const Modal = ({
     };
 
     if (lazy && !isMounted) return null;
-
     return (
+
         <Portal>
             <div className={classNames(cls.modal, mods, [className])}>
                 <div className={cls.overlay} onClick={closeHandler}>

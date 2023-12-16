@@ -1,5 +1,6 @@
 import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
+import { profileReducer } from 'entities/Profile';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import {
     ReactNode,
@@ -7,6 +8,7 @@ import {
 
 const defaultReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
     loginForm: loginReducer,
+    profile: profileReducer,
 };
 
 interface StoreDecoratorProps {
