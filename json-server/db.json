@@ -21,6 +21,13 @@
 		}
 	],
 	"profile": {
-		"name": "typicode"
+		"first": "Ivan",
+		"lastname": "Ivanov",
+		"age": 22,
+		"currence": "RUB",
+		"country": "Russian",
+		"city": "Moscow",
+		"usename": "admin",
+		"avatar": ""
 	}
 }

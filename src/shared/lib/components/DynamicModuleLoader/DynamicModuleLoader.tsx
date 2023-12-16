@@ -1,6 +1,5 @@
 import { ReduxStoreWithManager } from 'app/providers/StoreProvider';
 import { StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
-import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import {
     FC, useEffect,
 } from 'react';
@@ -20,7 +19,7 @@ interface DynamicModuleProps {
 	removeAfterUnmount?: boolean;
 }
 
-export const DinamicModuleLoader: FC<DynamicModuleProps> = ({
+export const DynamicModuleLoader: FC<DynamicModuleProps> = ({
     children, reducers, removeAfterUnmount,
 }) => {
     const store = useStore() as ReduxStoreWithManager;
