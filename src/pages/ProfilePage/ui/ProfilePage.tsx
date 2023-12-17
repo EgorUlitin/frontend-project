@@ -1,7 +1,8 @@
-import { profileReducer } from 'entities/Profile';
-import { memo } from 'react';
+import { ProfileCard, fetchProfileData, profileReducer } from 'entities/Profile';
+import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 const redusers: ReducerList = {
     profile: profileReducer,
@@ -9,11 +10,16 @@ const redusers: ReducerList = {
 
 const ProfilePage = memo(() => {
     const { t } = useTranslation('main');
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(fetchProfileData());
+    }, [dispatch]);
 
     return (
         <DynamicModuleLoader reducers={redusers} removeAfterUnmount>
             <div>
-                {t('ProfilePage страница')}
+                <ProfileCard />
             </div>
         </DynamicModuleLoader>
 

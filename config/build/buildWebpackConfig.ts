@@ -12,7 +12,9 @@ export function buildWebpackConfig(
         mode,
         port,
         isDev,
+        apiUrl,
         paths: { entry, build, html },
+
     } = options;
     return {
         mode,
@@ -22,7 +24,7 @@ export function buildWebpackConfig(
             path: build,
             clean: true,
         },
-        plugins: buildPlugins(html, isDev),
+        plugins: buildPlugins(html, isDev, apiUrl),
         module: {
             rules: buildLoaders(options),
         },

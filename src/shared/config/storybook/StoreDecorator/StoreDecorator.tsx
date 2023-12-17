@@ -1,12 +1,12 @@
-import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { profileReducer } from 'entities/Profile';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import {
     ReactNode,
 } from 'react';
+import { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
-const defaultReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
+const defaultReducers: ReducerList = {
     loginForm: loginReducer,
     profile: profileReducer,
 };
@@ -14,7 +14,7 @@ const defaultReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
 interface StoreDecoratorProps {
     children: ReactNode,
     state: DeepPartial<StateSchema>,
-    asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>
+    asyncReducers?: ReducerList
 }
 
 export const StoreDecorator = ({ children, state, asyncReducers }: StoreDecoratorProps) => (
