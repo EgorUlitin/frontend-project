@@ -34,4 +34,5 @@ export interface ThunkConfig<T> {
   rejectWithValue: T,
   extra: ThunkExtraArg
   dispatch?: Dispatch
+  state: StateSchema
 }

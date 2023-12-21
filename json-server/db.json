@@ -1,33 +1,35 @@
 {
-	"posts": [
-		{
-			"id": "1",
-			"title": "json-server",
-			"author": "typicode"
-		}
-	],
-	"comments": [
-		{
-			"id": "1",
-			"body": "some comment",
-			"postId": "1"
-		}
-	],
-	"users": [
-		{
-			"id": "1",
-			"username": "admin",
-			"password": "123"
-		}
-	],
-	"profile": {
-		"first": "Ivan",
-		"lastname": "Ivanov",
-		"age": 22,
-		"currence": "RUB",
-		"country": "Russian",
-		"city": "Moscow",
-		"usename": "admin",
-		"avatar": ""
-	}
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": "1"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123"
+    }
+  ],
+  "profile": {
+    "first": "Ivanasdasd",
+    "lastname": "Ivanovasdasd",
+    "age": 22111213,
+    "currence": "RUB",
+    "country": "Kazakhstan",
+    "city": "Moscowadasd",
+    "usename": "admin",
+    "avatar": "https://img.freepik.com/premium-vector/avatar-female-social-network-media-design_24877-17894.jpg",
+    "username": "Ivvannn",
+    "currency": "EUR"
+  }
 }
