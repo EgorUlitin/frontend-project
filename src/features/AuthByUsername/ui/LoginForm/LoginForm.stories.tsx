@@ -1,10 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import LoginForm from './LoginForm';
 
 const meta: Meta<typeof LoginForm> = {
     title: 'features/LoginForm',
     component: LoginForm,
+    decorators: [
+        (Story) => (
+            <RouterDecorator>
+                <Story />
+            </RouterDecorator>
+        ),
+    ],
 };
 
 export default meta;

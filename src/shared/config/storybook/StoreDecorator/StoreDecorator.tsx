@@ -13,7 +13,7 @@ const defaultReducers: ReducerList = {
 
 interface StoreDecoratorProps {
     children: ReactNode,
-    state: DeepPartial<StateSchema>,
+    state?: DeepPartial<StateSchema>,
     asyncReducers?: ReducerList
 }
 

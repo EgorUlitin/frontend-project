@@ -8,6 +8,7 @@ export function buildPlugins(
     path: string,
     isDev: boolean,
     apiUrl: string,
+    project: string,
 ): webpack.WebpackPluginInstance[] {
     const plugins = [
         new HTMLWebpackPlugin({
@@ -21,6 +22,7 @@ export function buildPlugins(
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
+            __PROJECT__: JSON.stringify(project),
         }),
         // new webpack.HotModuleReplacementPlugin(),
         // new ReactRefreshWebpackPlugin(),

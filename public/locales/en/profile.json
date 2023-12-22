@@ -2,7 +2,8 @@
 	"Профиль": "Profile",
 	"Редактировать": "Edit",
 	"Ваше имя": "Your name",
-	"Вашa фамилия": "Your lastname",
+	"Ваша фамилия": "Your lastname",
+	"Ваш город":"Your city",
 	"Ошибка загрузки профиля":"Error loading of profile",
 	"Пробуйте обновить страницу": "Try to refresh the page",
 	"Отменить": "Cancel",
@@ -12,5 +13,11 @@
 	"Введите ссылку на аватар": "Type link to avatar",
 	"Введите имя пользователя":"Type username",
 	"Аватар":"Avatar",
-	"Укажите валюту": "Set currency"
+	"Укажите валюту": "Set currency",
+	"Серверная ошибка при сохранении": "Server error while saving",
+	"Некорректная страна":"Incorrect country",
+	"Данные не указаны":"Unspecified",
+	"Имя и фамилия обязательны":"Name and secondname are required",
+	"Некорректный возраст":"Incorrect age"
+
 }

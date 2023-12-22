@@ -7,6 +7,8 @@ import {
     profileActions,
     profileReducer,
     getProfileForm,
+    getProfileValidateErrors,
+    ValidateProfileError,
 } from 'entities/Profile';
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
@@ -14,6 +16,8 @@ import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicM
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const redusers: ReducerList = {
@@ -26,9 +30,21 @@ const ProfilePage = memo(() => {
     const error = useSelector(getProfileError);
     const isLoading = useSelector(getProfileIsLoading);
     const readonly = useSelector(getProfileReadonly);
+    const validateErrors = useSelector(getProfileValidateErrors);
+    const { t } = useTranslation('profile');
+
+    const validateErrorsTranslate = {
+        [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректная страна'),
+        [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+        [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+    };
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
     }, [dispatch]);
 
     const onChangeFirstname = useCallback((value: string) => {
@@ -67,6 +83,13 @@ const ProfilePage = memo(() => {
         <DynamicModuleLoader reducers={redusers} removeAfterUnmount>
             <div>
                 <ProfilePageHeader />
+                {validateErrors?.length && validateErrors.map((err) => (
+                    <Text
+                        key={err}
+                        theme={TextTheme.ERROR}
+                        text={validateErrorsTranslate[err]}
+                    />
+                ))}
                 <ProfileCard
                     data={formData}
                     isLoading={isLoading}
@@ -83,7 +106,6 @@ const ProfilePage = memo(() => {
                 />
             </div>
         </DynamicModuleLoader>
-
     );
 });
 

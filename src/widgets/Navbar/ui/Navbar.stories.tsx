@@ -10,11 +10,6 @@ const meta: Meta<typeof Navbar> = {
     component: Navbar,
     decorators: [
         (Story) => (
-            <RouterDecorator>
-                <Story />
-            </RouterDecorator>
-        ),
-        (Story) => (
             <StoreDecorator state={{
                 loginForm: {
                     username: '123',
@@ -24,6 +19,11 @@ const meta: Meta<typeof Navbar> = {
             >
                 <Story />
             </StoreDecorator>
+        ),
+        (Story) => (
+            <RouterDecorator>
+                <Story />
+            </RouterDecorator>
         ),
     ],
 };

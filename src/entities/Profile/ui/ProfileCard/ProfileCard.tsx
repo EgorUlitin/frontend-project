@@ -100,7 +100,7 @@ export const ProfileCard = ({
                 />
                 <Input
                     value={data?.city}
-                    placeholder={t('Ваш Город')}
+                    placeholder={t('Ваш город')}
                     className={cls.input}
                     onChange={onChangeCity}
                     readonly={readonly}

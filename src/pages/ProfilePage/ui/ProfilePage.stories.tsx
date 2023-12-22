@@ -4,6 +4,8 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Country';
 import ProfilePage from './ProfilePage';
 
 const meta: Meta<typeof ProfilePage> = {
@@ -16,20 +18,27 @@ const meta: Meta<typeof ProfilePage> = {
             </StyleDecorator>
         ),
         (Story) => (
-            <RouterDecorator>
-                <Story />
-            </RouterDecorator>
-        ),
-        (Story) => (
             <StoreDecorator state={{
-                loginForm: {
-                    username: '123',
-                    password: '123',
+                profile: {
+                    form: {
+                        first: 'Ivan',
+                        lastname: 'Ivanov',
+                        age: 32,
+                        currency: Currency.RUB,
+                        country: Country.Russia,
+                        city: 'Moscow',
+                        username: 'ivanok',
+                    },
                 },
             }}
             >
                 <Story />
             </StoreDecorator>
+        ),
+        (Story) => (
+            <RouterDecorator>
+                <Story />
+            </RouterDecorator>
         ),
     ],
 };

@@ -14,7 +14,7 @@ export function buildWebpackConfig(
         isDev,
         apiUrl,
         paths: { entry, build, html },
-
+        project,
     } = options;
     return {
         mode,
@@ -24,7 +24,7 @@ export function buildWebpackConfig(
             path: build,
             clean: true,
         },
-        plugins: buildPlugins(html, isDev, apiUrl),
+        plugins: buildPlugins(html, isDev, apiUrl, project),
         module: {
             rules: buildLoaders(options),
         },
