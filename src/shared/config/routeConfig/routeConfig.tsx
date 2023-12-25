@@ -8,7 +8,7 @@ import { RouteProps } from 'react-router-dom';
 //     authOnly?: boolean;
 // }
 
-interface AppRouteProps extends RouteProps {
+export interface AppRouteProps extends RouteProps {
     authOnly?: boolean;
 }
 
