@@ -11,9 +11,8 @@ interface ThemeSwitcherProps {
 }
 const map = {
     [Theme.DARK]: <LightIcon />,
-    [Theme.GREEN]: <DarkIcon />,
     [Theme.LIGHT]: <GreenIcon />,
-
+    [Theme.GREEN]: <DarkIcon />,
 };
 
 export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
@@ -25,8 +24,6 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
             className={classNames('', {}, [className])}
             onClick={toggleTheme}
         >
-
-            {/* {theme === Theme.LIGHT ? <LightIcon /> : <DarkIcon />} */}
             {map[theme]}
         </Button>
     );
