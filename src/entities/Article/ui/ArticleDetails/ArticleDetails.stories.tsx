@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Article } from 'entities/Article';
-import { ArticleType, BlockType } from 'entities/Article/model/types/article';
-import ArticleDetailsPage from './ArticleDetailsPage';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
+import { ArticleDetails } from './ArticleDetails';
+import {
+    Article, ArticleType, BlockType,
+} from '../../model/types/article';
 
 const article: Article = {
     id: '1',
@@ -76,15 +76,10 @@ const article: Article = {
     ],
 };
 
-const meta: Meta<typeof ArticleDetailsPage> = {
-    title: 'pages/ArticleDetailsPage',
-    component: ArticleDetailsPage,
+const meta: Meta<typeof ArticleDetails> = {
+    title: 'entities/ArticleDetails',
+    component: ArticleDetails,
     decorators: [
-        (Story) => (
-            <StyleDecorator>
-                <Story />
-            </StyleDecorator>
-        ),
         (Story) => (
             <RouterDecorator>
                 <Story />
@@ -94,7 +89,7 @@ const meta: Meta<typeof ArticleDetailsPage> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof ArticleDetailsPage>;
+type Story = StoryObj<typeof ArticleDetails>;
 
 export const Primary: Story = {
     decorators: [
@@ -108,6 +103,38 @@ export const Primary: Story = {
                 <Story />
             </StoreDecorator>
         ),
-
     ],
+    args: {},
+};
+
+export const Loading: Story = {
+    decorators: [
+        (Story) => (
+            <StoreDecorator state={{
+                articleDetails: {
+                    isLoading: true,
+                },
+            }}
+            >
+                <Story />
+            </StoreDecorator>
+        ),
+    ],
+    args: {},
+};
+
+export const Error: Story = {
+    decorators: [
+        (Story) => (
+            <StoreDecorator state={{
+                articleDetails: {
+                    error: 'error',
+                },
+            }}
+            >
+                <Story />
+            </StoreDecorator>
+        ),
+    ],
+    args: {},
 };
