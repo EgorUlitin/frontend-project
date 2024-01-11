@@ -107,23 +107,25 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://cdnn21.img.ria.ru/images/148208/24/1482082430_0:164:4000:2414_600x0_80_0_0_30ae38688e92256656343a4d835bf30c.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9kjLBwtgh1KFnjxIdQrBHy__pwKCRCF53bg&usqp=CAU"
     }
   ],
   "profile": {
-    "first": "jgh",
-    "lastname": "asf",
-    "age": 465,
+    "first": "Ivan",
+    "lastname": "Petrov",
+    "age": 24,
     "currency": "RUB",
     "country": "Belarus",
     "city": "Moscow",
     "username": "admin213",
-    "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
+    "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4zrK3OBGzq_OLypGSxXTRGrTgsQSIxp7DXg&usqp=CAU"
   }
 }

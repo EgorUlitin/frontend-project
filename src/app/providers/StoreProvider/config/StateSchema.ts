@@ -7,12 +7,14 @@ import { UserSchema } from 'entities/User';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { LoginSchema } from 'features/AuthByUsername';
 import { NavigateOptions, To } from 'react-router-dom';
+import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 
 export interface StateSchema {
-  user: UserSchema,
-  loginForm?: LoginSchema
-  profile?: ProfileSchema
-  articleDetails?: ArticleDetailsSchema
+  user: UserSchema;
+  loginForm?: LoginSchema;
+  profile?: ProfileSchema;
+  articleDetails?: ArticleDetailsSchema;
+  articleDetailsComments?: ArticleDetailsCommentsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

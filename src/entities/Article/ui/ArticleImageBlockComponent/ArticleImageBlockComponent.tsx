@@ -15,7 +15,7 @@ export const ArticleImageBlockComponent = memo(({ className, block }: ArticleIma
     return (
         <div className={classNames(cls.articleimagelockcomponent, {}, [className])}>
             <img alt={block.title} src={block.src} className={cls.img} />
-            {block.title && <Text text={block.title} align={TextAlign.CENTER} />}
+            {block.title && <Text className={cls.title} text={block.title} align={TextAlign.CENTER} />}
         </div>
     );
 });
