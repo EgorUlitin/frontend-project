@@ -10,7 +10,7 @@ import {
     getProfileValidateErrors,
     ValidateProfileError,
 } from 'entities/Profile';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -18,6 +18,8 @@ import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const redusers: ReducerList = {
@@ -31,6 +33,7 @@ const ProfilePage = memo(() => {
     const isLoading = useSelector(getProfileIsLoading);
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
+    const { id } = useParams<{id: string}>();
     const { t } = useTranslation('profile');
 
     const validateErrorsTranslate = {
@@ -41,11 +44,11 @@ const ProfilePage = memo(() => {
         [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
     };
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch]);
+    });
 
     const onChangeFirstname = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({ first: value }));
@@ -80,7 +83,7 @@ const ProfilePage = memo(() => {
     }, [dispatch]);
 
     return (
-        <DynamicModuleLoader reducers={redusers} removeAfterUnmount>
+        <DynamicModuleLoader reducers={redusers}>
             <div>
                 <ProfilePageHeader />
                 {validateErrors?.length && validateErrors.map((err) => (

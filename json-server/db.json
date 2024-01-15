@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,36 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "ad",
+      "id": "bMLb77m"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "by user 2",
+      "id": "hoPxohc"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "What else",
+      "id": "TYbeQeR"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "qaz",
+      "id": "AnSFRkt"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "g",
+      "id": "ucfwRfv"
     }
   ],
   "users": [
@@ -118,14 +150,28 @@
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9kjLBwtgh1KFnjxIdQrBHy__pwKCRCF53bg&usqp=CAU"
     }
   ],
-  "profile": {
-    "first": "Ivan",
-    "lastname": "Petrov",
-    "age": 24,
-    "currency": "RUB",
-    "country": "Belarus",
-    "city": "Moscow",
-    "username": "admin213",
-    "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4zrK3OBGzq_OLypGSxXTRGrTgsQSIxp7DXg&usqp=CAU"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Ivann",
+      "lastname": "Petrov",
+      "age": 24,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moscow",
+      "username": "admin213",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4zrK3OBGzq_OLypGSxXTRGrTgsQSIxp7DXg&usqp=CAU"
+    },
+    {
+      "id": "2",
+      "first": "Alexsander",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "Alex123",
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    }
+  ]
 }
