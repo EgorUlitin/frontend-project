@@ -2,7 +2,7 @@ import { ArticleDetails } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -10,10 +10,11 @@ import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm/index';
-import { getAddCommentFormText } from 'features/AddCommentForm/model/selectors/addCommentFormSelectors';
+import Button, { ButtonTheme } from 'shared/ui/Button/Button';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './ArticleDetailsPage.module.scss';
 import { articleDetailsCommentsReducer, getArticleComments } from '../model/slices/articleDetailsCommentsSlice';
-import { getArticleDetailsCommentsError, getArticleDetailsCommentsIsLoading } from '../model/selectors/comments';
+import { getArticleDetailsCommentsIsLoading } from '../model/selectors/comments';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
 
@@ -31,8 +32,7 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
     const { id } = useParams<{id: string}>();
     const comments = useSelector(getArticleComments.selectAll);
     const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
-    // const text = useSelector(getAddCommentFormText);
-    // const error = useSelector(getArticleDetailsCommentsError);
+    const navigate = useNavigate();
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
@@ -41,6 +41,10 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
     const onSendComment = useCallback((text) => {
         dispatch(addCommentForArticle(text));
     }, [dispatch]);
+
+    const onBackTiList = useCallback(() => {
+        navigate(RoutePath.articles);
+    }, [navigate]);
 
     if (!id) {
         return (
@@ -51,6 +55,9 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={redusers}>
             <div className={classNames(cls.articledetailspage, {}, [className])}>
+                <Button onClick={onBackTiList} theme={ButtonTheme.OUTLINE}>
+                    {t('Назад к списку')}
+                </Button>
                 <ArticleDetails id={id} />
                 <Text className={cls.commentTitle} title={t('Комментарии')} />
                 <AddCommentForm onSendComment={onSendComment} />
