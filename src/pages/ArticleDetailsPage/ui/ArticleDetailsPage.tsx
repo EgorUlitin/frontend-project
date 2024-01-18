@@ -12,6 +12,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm/index';
 import Button, { ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 import cls from './ArticleDetailsPage.module.scss';
 import { articleDetailsCommentsReducer, getArticleComments } from '../model/slices/articleDetailsCommentsSlice';
 import { getArticleDetailsCommentsIsLoading } from '../model/selectors/comments';
@@ -54,7 +55,7 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={redusers}>
-            <div className={classNames(cls.articledetailspage, {}, [className])}>
+            <Page className={classNames(cls.articledetailspage, {}, [className])}>
                 <Button onClick={onBackTiList} theme={ButtonTheme.OUTLINE}>
                     {t('Назад к списку')}
                 </Button>
@@ -65,7 +66,7 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
                     comments={comments}
                     isLoading={isLoading}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 });
