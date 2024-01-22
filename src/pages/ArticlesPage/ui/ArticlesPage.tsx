@@ -9,11 +9,11 @@ import { ArticleViewSelector } from 'features/ArticleViewSelector/ArticleViewSel
 import { Page } from 'shared/ui/Page/Page';
 import cls from './ArticlesPage.module.scss';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slices/articlePageSlice';
-import { fetchArtcilesList } from '../model/services/fetchArticlesList/fetchArticlesList';
 import {
-    getArticlesPageError, getArticlesPageHasMore, getArticlesPageIsLoading, getArticlesPageNum, getArticlesPageView,
+    getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView,
 } from '../model/selectors/articles';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
 
 const redusers: ReducerList = {
     articlesPage: articlesPageReducer,
@@ -28,8 +28,7 @@ const ArticlesPage = memo(() => {
     const view = useSelector(getArticlesPageView);
 
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initView());
-        dispatch(fetchArtcilesList({ page: 1 }));
+        dispatch(initArticlesPage());
     });
 
     const onLoadNextPart = useCallback(() => {
@@ -41,7 +40,7 @@ const ArticlesPage = memo(() => {
     }, [dispatch]);
 
     return (
-        <DynamicModuleLoader reducers={redusers}>
+        <DynamicModuleLoader reducers={redusers} removeAfterUnmount={false}>
             <Page onScrollEnd={onLoadNextPart} className={cls.articlespage}>
                 <ArticleViewSelector view={view} onViewClick={onChangeView} />
                 <ArticleList
