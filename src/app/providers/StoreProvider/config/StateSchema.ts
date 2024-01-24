@@ -9,6 +9,7 @@ import { LoginSchema } from 'features/AuthByUsername';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/AddCommentForm/model/types/addCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { ScrollSaveSchems } from 'features/ScrollSave/model/types/ScrollSaveSchema';
 
 export interface StateSchema {
   user: UserSchema;
@@ -18,6 +19,7 @@ export interface StateSchema {
   articleDetailsComments?: ArticleDetailsCommentsSchema;
   addCommentForm?: AddCommentFormSchema;
   articlesPage?: ArticlesPageSchema;
+  scrollSave: ScrollSaveSchems;
 }
 
 export type StateSchemaKey = keyof StateSchema;
