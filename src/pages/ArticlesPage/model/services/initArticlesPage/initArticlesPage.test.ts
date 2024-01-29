@@ -1,4 +1,5 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { useSearchParams } from 'react-router-dom';
 import { initArticlesPage } from './initArticlesPage';
 import { fetchArtcilesList } from '../fetchArticlesList/fetchArticlesList';
 
@@ -18,7 +19,9 @@ describe('fetchNextArticlesPage.test', () => {
             },
         });
 
-        await thunk.callThunk();
+        const [searchParams] = useSearchParams();
+
+        await thunk.callThunk(searchParams);
 
         expect(thunk.dispatch).toBeCalledTimes(2);
     });
@@ -34,7 +37,9 @@ describe('fetchNextArticlesPage.test', () => {
             },
         });
 
-        await thunk.callThunk();
+        const [searchParams] = useSearchParams();
+
+        await thunk.callThunk(searchParams);
 
         expect(thunk.dispatch).toBeCalledTimes(4);
         expect(fetchArtcilesList).toBeCalledWith({ page: 1 });

@@ -4,7 +4,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { Page } from './Page';
 
 const meta: Meta<typeof Page> = {
-    title: 'shared/Modal',
+    title: 'shared/Page',
     component: Page,
     decorators: [
         // (Story) => (

@@ -1,7 +1,6 @@
 import {
     MutableRefObject, ReactNode, UIEvent, memo, useRef,
 } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useInfinityScroll } from 'shared/lib/hooks/useInfinityScroll/useInfinityScroll';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -20,7 +19,6 @@ interface PageProps {
 }
 
 export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
-    const { t } = useTranslation();
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
@@ -51,7 +49,7 @@ export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
             onScroll={onScroll}
         >
             {children}
-            <div ref={triggerRef} />
+            {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null }
         </section>
     );
 });

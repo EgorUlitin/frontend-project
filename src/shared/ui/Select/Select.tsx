@@ -1,27 +1,24 @@
-import { useTranslation } from 'react-i18next';
 import { Mods, classNames } from 'shared/lib/classNames/classNames';
-import { ChangeEvent, memo, useMemo } from 'react';
+import { ChangeEvent, useMemo } from 'react';
 import cls from './Select.module.scss';
 
-export interface SelectOptinon {
-    value: string;
+export interface SelectOptinon<T extends string> {
+    value: T;
     content: string;
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
 	className?: string;
     label?: string;
-    options?: SelectOptinon[];
-    value?: string;
+    options?: SelectOptinon<T>[];
+    value?: T;
     readonly?: boolean;
-    onChange?: (value: string) => void;
+    onChange?: (value: T) => void;
 }
 
-export const Select = ({
+export const Select = <T extends string>({
     className, label, options, value, onChange, readonly,
-}: SelectProps) => {
-    const { t } = useTranslation();
-
+}: SelectProps<T>) => {
     const optionList = useMemo(() => options?.map((opt) => (
         <option
             className={cls.option}
@@ -33,7 +30,7 @@ export const Select = ({
     )), [options]);
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        onChange?.(e.target.value);
+        onChange?.(e.target.value as T);
     };
 
     const mods: Mods = {};
