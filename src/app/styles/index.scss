@@ -9,12 +9,6 @@ body {
     color: var(--primary-color);
 }
 
-// .app,
-// .app_modal {
-//     font: var(--font-m);
-//     color: var(--primary-color);
-// }
-
 .app {
     background: var(--bg-color);
     min-height: 100vh;
@@ -22,4 +16,19 @@ body {
 
 .content-page {
     display: flex;
+}
+
+*::-webkit-scrollbar {
+    width: 12px;
+    height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--card-bg);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--invert-primary-color);
+    border-radius: 20px;
+    border: 2px solid var(--primary-color);
 }

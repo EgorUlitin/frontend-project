@@ -6,20 +6,28 @@ import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { LoginSchema } from 'features/AuthByUsername';
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/AddCommentForm/model/types/addCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ScrollSaveSchems } from 'features/ScrollSave/model/types/ScrollSaveSchema';
+import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage/model/types';
 
 export interface StateSchema {
   user: UserSchema;
+  // loginForm?: LoginSchema;
+  // profile?: ProfileSchema;
+  // articleDetails?: ArticleDetailsSchema;
+  // articleDetailsPage?: ArticleDetailsPageSchema;
+  // addCommentForm?: AddCommentFormSchema;
+  // articlesPage?: ArticlesPageSchema;
+  scrollSave: ScrollSaveSchems;
+
+// Асинхронные редюсеры
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
-  articleDetailsComments?: ArticleDetailsCommentsSchema;
   addCommentForm?: AddCommentFormSchema;
   articlesPage?: ArticlesPageSchema;
-  scrollSave: ScrollSaveSchems;
+  articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

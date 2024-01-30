@@ -25,22 +25,22 @@ const meta: Meta<typeof ArticlesPage> = {
 export default meta;
 type Story = StoryObj<typeof ArticlesPage>;
 
-// export const Light: Story = {
-//     decorators: [
-//         (Story) => (
-//             <ThemeDecorator theme={Theme.LIGHT}>
-//                 <Story />
-//             </ThemeDecorator>
-//         ),
-//     ],
-// };
+export const Light: Story = {
+    decorators: [
+        (Story) => (
+            <ThemeDecorator theme={Theme.LIGHT}>
+                <Story />
+            </ThemeDecorator>
+        ),
+    ],
+};
 
-// export const Dark: Story = {
-//     decorators: [
-//         (Story) => (
-//             <ThemeDecorator theme={Theme.DARK}>
-//                 <Story />
-//             </ThemeDecorator>
-//         ),
-//     ],
-// };
+export const Dark: Story = {
+    decorators: [
+        (Story) => (
+            <ThemeDecorator theme={Theme.DARK}>
+                <Story />
+            </ThemeDecorator>
+        ),
+    ],
+};
