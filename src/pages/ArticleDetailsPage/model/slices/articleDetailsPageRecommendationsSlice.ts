@@ -3,7 +3,7 @@ import {
 } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Article } from 'entities/Article';
-import { ArticleDetailsPageRecommendationsSchema } from '../types/articleDetailsPageRecommendationsSchema';
+import { ArticleDetailsPageRecommendationsSchema } from '../types/ArticleDetailsPageRecommendationsSchema';
 import { fetchArtcilesRecommendationList } from '../services/fetchRecommendationsArticles/fetchRecommendationsArticles';
 
 const recommendationsAdapter = createEntityAdapter<Article>({
