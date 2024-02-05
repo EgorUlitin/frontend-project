@@ -77,7 +77,7 @@ export const ArticleList = memo(({
 
     return (
         <WindowScroller
-            onScroll={() => console.log('scroll')}
+            onScroll={() => {}}
             scrollElement={document.getElementById(PAGE_ID) as Element}
         >
             {({
