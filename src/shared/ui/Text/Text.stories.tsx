@@ -27,6 +27,22 @@ export const SizeL: Story = {
     },
 };
 
+export const SizeM: Story = {
+    args: {
+        title: 'Title',
+        text: 'My text My text My text My text My text',
+        size: TextSize.M,
+    },
+};
+
+export const SizeS: Story = {
+    args: {
+        title: 'Title',
+        text: 'My text My text My text My text My text',
+        size: TextSize.S,
+    },
+};
+
 export const Error: Story = {
     args: {
         title: 'Title',
