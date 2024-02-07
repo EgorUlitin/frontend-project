@@ -9,6 +9,7 @@ import { CurrencySelect } from 'entities/Currency/ui/CurrencySelect/CurrencySele
 import { Country } from 'entities/Country/model/types/country';
 import { CountrySelect } from 'entities/Country';
 import { HStack, VStack } from 'shared/ui/Stack';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
