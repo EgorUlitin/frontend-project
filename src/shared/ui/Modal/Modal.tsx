@@ -23,6 +23,7 @@ export const Modal = ({
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+    const { theme } = useTheme();
 
     const closeHandler = useCallback(() => {
         if (onClose) {
@@ -67,7 +68,7 @@ export const Modal = ({
     return (
 
         <Portal>
-            <div className={classNames(cls.modal, mods, [className])}>
+            <div className={classNames(cls.modal, mods, [className, theme, 'modal'])}>
                 <div className={cls.overlay} onClick={closeHandler}>
                     <div className={cls.content} onClick={onContentClick}>
                         {children}
