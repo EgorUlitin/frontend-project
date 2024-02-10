@@ -43,12 +43,6 @@ export const articlesPageSlice = createSlice({
         setPage: (state, action: PayloadAction<number>) => {
             state.page = action.payload;
         },
-        initState: (state) => {
-            const view = localStorage.getItem(ARTICLES_VIEW_LOCAL_STORAGE_KEY) as ArticleView;
-            state.view = view;
-            state.limit = view === ArticleView.BIG ? 4 : 9;
-            state._inited = true;
-        },
         setLimit: (state, action: PayloadAction<number>) => {
             state.limit = action.payload;
         },
@@ -63,6 +57,13 @@ export const articlesPageSlice = createSlice({
         },
         setType: (state, action: PayloadAction<ArticleType>) => {
             state.type = action.payload;
+        },
+        initState: (state) => {
+            const view = localStorage.getItem(ARTICLES_VIEW_LOCAL_STORAGE_KEY) as ArticleView;
+
+            state.view = view;
+            state.limit = view === ArticleView.BIG ? 4 : 9;
+            state._inited = true;
         },
     },
     extraReducers: (builder) => {

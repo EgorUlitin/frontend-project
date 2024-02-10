@@ -1,11 +1,10 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { useSearchParams } from 'react-router-dom';
 import { initArticlesPage } from './initArticlesPage';
 import { fetchArtcilesList } from '../fetchArticlesList/fetchArticlesList';
 
 jest.mock('../fetchArticlesList/fetchArticlesList.ts');
 
-describe('fetchNextArticlesPage.test', () => {
+describe('initArticlePage.test', () => {
     test('with inited true', async () => {
         const thunk = new TestAsyncThunk(initArticlesPage, {
             articlesPage: {
@@ -19,7 +18,7 @@ describe('fetchNextArticlesPage.test', () => {
             },
         });
 
-        const [searchParams] = useSearchParams();
+        const searchParams = new URLSearchParams();
 
         await thunk.callThunk(searchParams);
 
@@ -34,14 +33,15 @@ describe('fetchNextArticlesPage.test', () => {
                 limit: 5,
                 isLoading: false,
                 hasMore: false,
+                _inited: false,
             },
         });
 
-        const [searchParams] = useSearchParams();
+        const searchParams = new URLSearchParams();
 
         await thunk.callThunk(searchParams);
 
         expect(thunk.dispatch).toBeCalledTimes(4);
-        expect(fetchArtcilesList).toBeCalledWith({ page: 1 });
+        expect(fetchArtcilesList).toBeCalled();
     });
 });

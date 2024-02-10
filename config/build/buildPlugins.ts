@@ -29,7 +29,7 @@ export function buildPlugins({
         // new webpack.HotModuleReplacementPlugin(),
         // new ReactRefreshWebpackPlugin(),
         // new BundleAnalyzerPlugin({
-        //     openAnalyzer: false,
+        //     openAnalyzer: true,
         // }),
         new CopyPlugin({
             patterns: [

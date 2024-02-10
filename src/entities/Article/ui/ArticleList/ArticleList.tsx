@@ -22,7 +22,7 @@ interface ArticleListProps {
 const generateSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
     .fill(0)
     .map((_, index) => (
-        <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
+        <ArticleListItemSkeleton key={index} view={view} />
     ));
 
 export const ArticleList = memo(({
@@ -84,6 +84,7 @@ export const ArticleList = memo(({
                 height, width, registerChild, onChildScroll, isScrolling, scrollTop,
             }) => (
                 <div ref={registerChild} className={classNames(cls.articlelist, {}, [className, cls[view]])}>
+                    {isLoading && generateSkeletons(view)}
                     <List
                         height={height ?? 700}
                         width={width ? width - 80 : 700}
@@ -95,13 +96,8 @@ export const ArticleList = memo(({
                         isScrolling={isScrolling}
                         scrollTop={scrollTop}
                     />
-                    {isLoading && generateSkeletons(view)}
                 </div>
             )}
         </WindowScroller>
-        // <div className={classNames(cls.articlelist, {}, [className, cls[view]])}>
-        //     {articles.length ? articles.map(renderArticle) : null}
-        //     {isLoading && generateSkeletons(view)}
-        // </div>
     );
 });

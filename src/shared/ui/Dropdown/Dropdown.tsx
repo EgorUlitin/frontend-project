@@ -1,5 +1,4 @@
 import { Fragment, ReactNode, memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Menu } from '@headlessui/react';
 import { DropdownDirection } from 'shared/types/ui';
@@ -30,16 +29,13 @@ const mapDirection: Record<DropdownDirection, string> = {
 export const Dropdown = memo(({
     className, trigger, items, direction,
 }: DropdownProps) => {
-    const { t } = useTranslation();
     return (
         <Menu as="div" className={classNames(cls.dropdown, {}, [className])}>
             <Menu.Button className={cls.btn}>{trigger}</Menu.Button>
             <Menu.Items className={classNames(cls.menu, {}, [mapDirection[direction]])}>
                 {items.map(({
                     disabled, content, onClick, href,
-                }) => {
-                    console.log(href);
-
+                }, i) => {
                     const item = ({ active }: { active: boolean}) => (
                         <button
                             type="button"
@@ -53,14 +49,14 @@ export const Dropdown = memo(({
 
                     if (href) {
                         return (
-                            <Menu.Item as={AppLink} to={href} disabled={disabled}>
+                            <Menu.Item key={i} as={AppLink} to={href} disabled={disabled}>
                                 {item}
                             </Menu.Item>
                         );
                     }
 
                     return (
-                        <Menu.Item as={Fragment} disabled={disabled}>
+                        <Menu.Item key={i} as={Fragment} disabled={disabled}>
                             {item}
                         </Menu.Item>
                     );

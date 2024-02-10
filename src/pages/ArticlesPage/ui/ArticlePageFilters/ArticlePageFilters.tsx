@@ -12,6 +12,7 @@ import { SortOrder } from 'shared/types';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { TabsItem } from 'shared/ui/Tabs/Tabs';
 import { ArticleTypeTabs } from 'features/ArticleTypeTabs/ArticleTypeTabs';
+import { HStack, VStack } from 'shared/ui/Stack';
 import {
     getArticlesPageOrder,
     getArticlesPageSearch,
@@ -21,7 +22,6 @@ import {
 } from '../../model/selectors/articles';
 import { articlesPageActions } from '../../model/slices/articlePageSlice';
 import { fetchArtcilesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
-import cls from './ArticlePageFilters.module.scss';
 
 interface ArticlePageFiltersProps {
 	className?: string;
@@ -71,8 +71,8 @@ export const ArticlePageFilters = memo(({ className }: ArticlePageFiltersProps) 
     }, [dispatch, fetchData]);
 
     return (
-        <div className={classNames(cls.articlepagefilters, {}, [className])}>
-            <div className={cls.sortWrapper}>
+        <VStack gap="16" className={classNames('', {}, [className])}>
+            <HStack max align="center" justify="between">
                 <ArticleSortSelector
                     order={order}
                     sort={sort}
@@ -83,19 +83,20 @@ export const ArticlePageFilters = memo(({ className }: ArticlePageFiltersProps) 
                     view={view}
                     onViewClick={onChangeView}
                 />
-            </div>
-            <Card className={cls.search}>
-                <Input
-                    onChange={onChangeSearch}
-                    value={search}
-                    placeholder={t('Поиск')}
-                />
-            </Card>
+            </HStack>
+            <HStack max>
+                <Card>
+                    <Input
+                        onChange={onChangeSearch}
+                        value={search}
+                        placeholder={t('Поиск')}
+                    />
+                </Card>
+            </HStack>
             <ArticleTypeTabs
-                className={cls.tabs}
                 value={type}
                 onChangeType={onChangeType}
             />
-        </div>
+        </VStack>
     );
 });

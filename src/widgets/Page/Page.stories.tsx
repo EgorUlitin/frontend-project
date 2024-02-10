@@ -1,17 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { Page } from './Page';
 
 const meta: Meta<typeof Page> = {
     title: 'shared/Page',
     component: Page,
     decorators: [
-        // (Story) => (
-        //     <ThemeDecorator theme={Theme.LIGHT}>
-        //         <Story />
-        //     </ThemeDecorator>
-        // ),
+        (Story) => (
+            <StoreDecorator>
+                <Story />
+            </StoreDecorator>
+        ),
+        (Story) => (
+            <RouterDecorator>
+                <Story />
+            </RouterDecorator>
+        ),
     ],
 };
 
@@ -22,17 +27,4 @@ export const Primary: Story = {
     args: {
 
     },
-};
-
-export const Dark: Story = {
-    args: {
-
-    },
-    // decorators: [
-    //     (Story) => (
-    //         <ThemeDecorator theme={Theme.DARK}>
-    //             <Story />
-    //         </ThemeDecorator>
-    //     ),
-    // ],
 };
