@@ -17,6 +17,7 @@ interface ArticleListProps {
 	isLoading?: boolean;
 	view?: ArticleView;
     target?: HTMLAttributeAnchorTarget;
+    virtualized?: boolean;
 }
 
 const generateSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
@@ -26,7 +27,7 @@ const generateSkeletons = (view: ArticleView) => new Array(view === ArticleView.
     ));
 
 export const ArticleList = memo(({
-    className, articles, isLoading, view = ArticleView.SMALL, target,
+    className, articles, isLoading, view = ArticleView.SMALL, target, virtualized = true,
 }: ArticleListProps) => {
     const { t } = useTranslation();
 
@@ -85,17 +86,30 @@ export const ArticleList = memo(({
             }) => (
                 <div ref={registerChild} className={classNames(cls.articlelist, {}, [className, cls[view]])}>
                     {isLoading && generateSkeletons(view)}
-                    <List
-                        height={height ?? 700}
-                        width={width ? width - 80 : 700}
-                        rowCount={rowCount}
-                        rowHeight={isBig ? 700 : 330}
-                        rowRenderer={rowRender}
-                        autoHeight
-                        onScroll={onChildScroll}
-                        isScrolling={isScrolling}
-                        scrollTop={scrollTop}
-                    />
+                    {virtualized
+                        ? (
+                            <List
+                                height={height ?? 700}
+                                width={width ? width - 80 : 700}
+                                rowCount={rowCount}
+                                rowHeight={isBig ? 700 : 330}
+                                rowRenderer={rowRender}
+                                autoHeight
+                                onScroll={onChildScroll}
+                                isScrolling={isScrolling}
+                                scrollTop={scrollTop}
+                            />
+                        )
+                        : (articles.map((article) => (
+                            <ArticleListItem
+                                key={article.id}
+                                article={article}
+                                className={className}
+                                view={view}
+                                target={target}
+                            />
+                        )))}
+
                 </div>
             )}
         </WindowScroller>

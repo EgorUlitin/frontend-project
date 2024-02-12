@@ -47,6 +47,7 @@ export const EditableProfileHeader = ({ className }: EditableProfileHeaderProps)
                             <Button
                                 theme={ButtonTheme.OUTLINE}
                                 onClick={onEdit}
+                                data-testid="EditableProfileHeader.EditButton"
                             >
                                 {t('Редактировать')}
                             </Button>
@@ -56,12 +57,14 @@ export const EditableProfileHeader = ({ className }: EditableProfileHeaderProps)
                                 <Button
                                     theme={ButtonTheme.OUTLINE_RED}
                                     onClick={onCancelEdit}
+                                    data-testid="EditableProfileHeader.CancelButton"
                                 >
                                     {t('Отменить')}
                                 </Button>
                                 <Button
                                     theme={ButtonTheme.OUTLINE}
                                     onClick={onSaveProfile}
+                                    data-testid="EditableProfileHeader.SaveButton"
                                 >
                                     {t('Сохранить')}
                                 </Button>
