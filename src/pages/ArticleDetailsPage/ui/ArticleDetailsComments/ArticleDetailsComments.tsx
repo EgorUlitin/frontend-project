@@ -6,6 +6,7 @@ import { Text, TextSize } from 'shared/ui/Text/Text';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { VStack } from 'shared/ui/Stack';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/comments';
@@ -31,13 +32,13 @@ export const ArticleDetailsComments = memo(({ id }: ArticleDetailsCommentsProps)
     }, [dispatch]);
 
     return (
-        <>
+        <VStack gap="16" max>
             <Text size={TextSize.L} title={t('Комментарии')} />
             <AddCommentForm onSendComment={onSendComment} />
             <CommentList
                 comments={comments}
                 isLoading={isLoadingComments}
             />
-        </>
+        </VStack>
     );
 });
