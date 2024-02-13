@@ -10,3 +10,4 @@ export {
 
 export { getUserAuthData } from './model/selectors/authUserData/authUserData';
 export { getUserInited } from './model/selectors/getUserInited/getUserInited';
+export { getUserRoles, isUserAdmin, isUserManager } from './model/selectors/roleSelectors';
