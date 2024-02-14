@@ -26,7 +26,7 @@ const AddCommentForm = memo(({ className, onSendComment }: AddCommentFormProps) 
     // const error = useSelector(getAddCommentFormError);
     const { t } = useTranslation();
 
-    const onTextChange = useCallback((value) => {
+    const onTextChange = useCallback((value: string) => {
         dispatch(addCommentFormActions.setText(value));
     }, [dispatch]);
 

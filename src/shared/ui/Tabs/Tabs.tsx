@@ -1,6 +1,5 @@
 import { ReactNode, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleType } from 'entities/Article';
 import cls from './Tabs.module.scss';
 import { Card, CardTheme } from '../Card/Card';
 
@@ -13,13 +12,13 @@ interface TabsProps<T extends string> {
   className?: string;
   tabs: TabsItem<T>[];
   value: string;
-  onTabClick: (tab: TabsItem<ArticleType>) => void
+  onTabClick: (tab: TabsItem<T>) => void
 }
 
 export const Tabs = <T extends string>({
     className, tabs, value, onTabClick,
 }: TabsProps<T>) => {
-    const clickHandle = useCallback((tab) => () => {
+    const clickHandle = useCallback((tab: TabsItem<T>) => () => {
         onTabClick(tab);
     }, [onTabClick]);
 

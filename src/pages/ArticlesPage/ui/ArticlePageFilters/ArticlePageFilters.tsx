@@ -7,7 +7,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Input } from 'shared/ui/Input/Input';
 import { Card } from 'shared/ui/Card/Card';
 import { ArticleSortSelector } from 'features/ArticleSortSelector/ArticleSortSelector';
-import { ArticleSortField, ArticleType } from 'entities/Article';
+import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
 import { SortOrder } from 'shared/types';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { TabsItem } from 'shared/ui/Tabs/Tabs';
@@ -42,7 +42,7 @@ export const ArticlePageFilters = memo(({ className }: ArticlePageFiltersProps) 
 
     const debouncedFetchData = useDebounce(fetchData, 500);
 
-    const onChangeView = useCallback((view) => {
+    const onChangeView = useCallback((view: ArticleView) => {
         dispatch(articlesPageActions.setView(view));
     }, [dispatch]);
 

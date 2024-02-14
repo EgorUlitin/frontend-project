@@ -84,6 +84,7 @@ export const ArticleList = memo(({
             {({
                 height, width, registerChild, onChildScroll, isScrolling, scrollTop,
             }) => (
+                // @ts-ignore
                 <div ref={registerChild} className={classNames(cls.articlelist, {}, [className, cls[view]])}>
                     {isLoading && generateSkeletons(view)}
                     {virtualized

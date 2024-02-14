@@ -20,7 +20,7 @@ import { ValidateProfileError } from '../../model/types/editableProfileCardSchem
 import { EditableProfileHeader } from '../EditableProfileHeader/EditableProfileHeader';
 
 interface EditableProfileCardProps {
-    id: string;
+    id?: string;
 }
 
 const redusers: ReducerList = {

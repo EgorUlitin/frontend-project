@@ -13,7 +13,7 @@ import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/commen
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 
 interface ArticleDetailsCommentsProps {
-	id: string;
+	id?: string;
 }
 
 export const ArticleDetailsComments = memo(({ id }: ArticleDetailsCommentsProps) => {
@@ -27,7 +27,7 @@ export const ArticleDetailsComments = memo(({ id }: ArticleDetailsCommentsProps)
         dispatch(fetchCommentsByArticleId(id));
     });
 
-    const onSendComment = useCallback((text) => {
+    const onSendComment = useCallback((text: string) => {
         dispatch(addCommentForArticle(text));
     }, [dispatch]);
 
