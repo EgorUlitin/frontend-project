@@ -1,5 +1,7 @@
 export { default as EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard';
-export { ProfileSchema, ValidateProfileError } from './model/types/editableProfileCardSchema';
+export { ValidateProfileError } from './model/consts/consts';
+
+export type { ProfileSchema } from './model/types/editableProfileCardSchema';
 
 export { profileActions, profileReducer } from './model/slice/profileSlice';
 

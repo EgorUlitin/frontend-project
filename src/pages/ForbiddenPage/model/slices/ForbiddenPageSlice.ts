@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ForbiddenPageSchema } from '../types/ForbiddenPageSchema';
 
 const initialState: ForbiddenPageSchema = {
-    
+
 };
 
 export const ForbiddenPageSlice = createSlice({
@@ -10,7 +10,7 @@ export const ForbiddenPageSlice = createSlice({
     initialState,
     reducers: {
         template: (state, action: PayloadAction<string>) => {
-           
+
         },
     },
     // extraReducers: (builder) => {

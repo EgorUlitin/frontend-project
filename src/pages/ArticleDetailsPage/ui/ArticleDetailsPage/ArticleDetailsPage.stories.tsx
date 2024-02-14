@@ -3,7 +3,7 @@ import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDeco
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Article } from 'entities/Article';
-import { ArticleType, BlockType } from 'entities/Article/model/types/article';
+import { ArticleType, BlockType } from 'entities/Article/model/consts/consts';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 const article: Article = {

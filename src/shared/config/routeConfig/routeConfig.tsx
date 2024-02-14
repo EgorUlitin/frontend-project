@@ -7,7 +7,7 @@ import { ProfilePage } from 'pages/ProfilePage';
 import { RouteProps } from 'react-router-dom';
 import { ArticleEditPage } from 'pages/ArticleEditPage';
 import { AdminPanelPage } from 'pages/AdminPanelPage';
-import { UserRole } from 'entities/User/model/types/user';
+import { UserRole } from 'entities/User/model/consts/consts';
 import { ForbiddenPage } from 'pages/ForbiddenPage';
 
 export interface AppRouteProps extends RouteProps {

@@ -3,8 +3,9 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDeco
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { ArticleDetails } from './ArticleDetails';
 import {
-    Article, ArticleType, BlockType,
+    Article,
 } from '../../model/types/article';
+import { ArticleType, BlockType } from '../../model/consts/consts';
 
 const article: Article = {
     id: '1',
