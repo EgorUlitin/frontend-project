@@ -3,7 +3,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Menu } from '@headlessui/react';
 import { DropdownDirection } from 'shared/types/ui';
 import cls from './Dropdown.module.scss';
-import { AppLink } from '../AppLink/AppLink';
+import { AppLink } from '../../../AppLink/AppLink';
+import { mapDirection } from '../../styles/consts';
+import popupCls from '../../styles/popup.module.scss';
 
 interface DropdownItem {
     disabled?: boolean;
@@ -19,19 +21,12 @@ interface DropdownProps {
   direction: DropdownDirection;
 }
 
-const mapDirection: Record<DropdownDirection, string> = {
-    'top rigth': cls.topRigth,
-    'top left': cls.topLeft,
-    'bottom rigth': cls.bottomRigth,
-    'bottom left': cls.bottomLeft,
-};
-
 export const Dropdown = memo(({
     className, trigger, items, direction,
 }: DropdownProps) => {
     return (
-        <Menu as="div" className={classNames(cls.dropdown, {}, [className])}>
-            <Menu.Button className={cls.btn}>{trigger}</Menu.Button>
+        <Menu as="div" className={classNames(cls.dropdown, {}, [className, popupCls.popup])}>
+            <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
             <Menu.Items className={classNames(cls.menu, {}, [mapDirection[direction]])}>
                 {items.map(({
                     disabled, content, onClick, href,
@@ -39,7 +34,7 @@ export const Dropdown = memo(({
                     const item = ({ active }: { active: boolean}) => (
                         <button
                             type="button"
-                            className={classNames(cls.item, { [cls.active]: active })}
+                            className={classNames(cls.item, { [popupCls.active]: active })}
                             onClick={onClick}
                             disabled={disabled}
                         >
