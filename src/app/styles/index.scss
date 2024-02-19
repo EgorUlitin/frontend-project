@@ -5,8 +5,9 @@
 @import "./themes/green";
 
 .app,
-.modal {
-    background: var(--bg-color);
+.modal,
+.app_drawer {
+    // background: var(--bg-color);
     min-height: 100vh;
     font: var(--font-m);
     color: var(--primary-color);
