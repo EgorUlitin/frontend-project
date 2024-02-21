@@ -1,8 +1,8 @@
 import {
     createSlice, createEntityAdapter,
 } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { Article } from 'entities/Article';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { Article } from '@/entities/Article';
 import { ArticleDetailsPageRecommendationsSchema } from '../types/ArticleDetailsPageRecommendationsSchema';
 import { fetchArtcilesRecommendationList } from '../services/fetchRecommendationsArticles/fetchRecommendationsArticles';
 

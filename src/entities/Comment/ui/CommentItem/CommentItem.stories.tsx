@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
-import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
+import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { CommentItem } from './CommentItem';
 
 const meta: Meta<typeof CommentItem> = {
