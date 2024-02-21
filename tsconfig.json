@@ -4,6 +4,9 @@
     "noImplicitAny": true,
     "module": "ESNext",
     "target": "es5",
+    "types": [
+      "vite-plugin-svgr/client"
+    ],
     "downlevelIteration": true,
     "jsx": "react-jsx",
     "strict": true,
