@@ -1,0 +1,12 @@
+.starrating {
+	fill:none;
+	cursor: pointer;
+}
+
+.isHovered {
+	fill: var(--primary-color);
+}
+
+.isSelected {
+	cursor: auto;
+}

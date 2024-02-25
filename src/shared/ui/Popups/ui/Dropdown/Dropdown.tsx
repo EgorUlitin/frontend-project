@@ -44,14 +44,14 @@ export const Dropdown = memo(({
 
                     if (href) {
                         return (
-                            <Menu.Item key={i} as={AppLink} to={href} disabled={disabled}>
+                            <Menu.Item key={`dropdown-key${i}`} as={AppLink} to={href} disabled={disabled}>
                                 {item}
                             </Menu.Item>
                         );
                     }
 
                     return (
-                        <Menu.Item key={i} as={Fragment} disabled={disabled}>
+                        <Menu.Item key={`dropdown-key${i}`} as={Fragment} disabled={disabled}>
                             {item}
                         </Menu.Item>
                     );
