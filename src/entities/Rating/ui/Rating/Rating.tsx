@@ -1,8 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './Rating.module.scss';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Card } from '@/shared/ui/Card/Card';
 import { Text } from '@/shared/ui/Text/Text';
@@ -18,7 +16,8 @@ interface RatingProps {
     feedbackTitle?: string;
     hasFeedback?: boolean;
     onCancel?: (starsCount: number) => void;
-    onAccept?: (starsCount: number, feedback?: string) => void;
+    onAccept?: (starsCount: number, feedback: string) => void;
+    rate?: number;
 }
 
 export const Rating = memo((props: RatingProps) => {
@@ -29,11 +28,12 @@ export const Rating = memo((props: RatingProps) => {
         hasFeedback,
         onCancel,
         onAccept,
+        rate = 0,
     } = props;
 
     const { t } = useTranslation();
     const [isModalOpen, setIsOpenModal] = useState(false);
-    const [starsCount, setStarsCount] = useState(0);
+    const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
     const onSelectStarts = useCallback((selectedStarsCount: number) => {
@@ -41,9 +41,9 @@ export const Rating = memo((props: RatingProps) => {
         if (hasFeedback) {
             setIsOpenModal(true);
         } else {
-            onAccept?.(selectedStarsCount);
+            onAccept?.(selectedStarsCount, feedback);
         }
-    }, [hasFeedback, onAccept]);
+    }, [feedback, hasFeedback, onAccept]);
 
     const acceptHandler = useCallback(() => {
         setIsOpenModal(false);
@@ -67,10 +67,10 @@ export const Rating = memo((props: RatingProps) => {
     );
 
     return (
-        <Card className={classNames(cls.Rating, {}, [className])}>
+        <Card className={className}>
             <VStack align="center" gap="8">
-                <Text title={title} />
-                <StarRating size={40} onSelect={onSelectStarts} />
+                <Text title={starsCount ? 'Спасибо за оценку' : title} />
+                <StarRating selectedStar={rate} size={40} onSelect={onSelectStarts} />
             </VStack>
             <BrowserView>
                 <Modal isOpen={isModalOpen} lazy>
