@@ -8,7 +8,6 @@ import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import {
     getUserAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/User';
-import cls from './AvatarDropdown.module.scss';
 
 interface AvatarDropdownProps {
   className?: string;
