@@ -12,4 +12,8 @@ export { getArticleDetailsData } from './model/selectors/getArticleDetailsData';
 
 export { ArticleSortField } from './model/consts/consts';
 
-export { ArticleType } from './model/consts/consts';
+export { ArticleType, BlockType } from './model/consts/consts';
+
+export { articleDetailsReducer } from './model/slice/articleDetailsSlice';
+
+export { ArticleList } from './ui/ArticleList/ArticleList';

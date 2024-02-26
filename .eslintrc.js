@@ -74,6 +74,10 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
+        'ulitin-frontend-plugin/public-api-imports': ['error', {
+            alias: '@',
+            testFilesPatterns: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx'],
+        }],
         'ulitin-frontend-plugin/path-checker': ['error', { alias: '@' }],
     },
     globals: {

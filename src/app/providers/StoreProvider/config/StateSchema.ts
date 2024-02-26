@@ -5,10 +5,10 @@ import { AxiosInstance } from 'axios';
 import { UserSchema } from '@/entities/User';
 import { ArticleDetailsSchema } from '@/entities/Article';
 import { LoginSchema } from '@/features/AuthByUsername';
-import { AddCommentFormSchema } from '@/features/AddCommentForm/model/types/addCommentForm';
+import { AddCommentFormSchema } from '@/features/AddCommentForm';
 import { ArticlesPageSchema } from '@/pages/ArticlesPage';
-import { ScrollSaveSchems } from '@/features/ScrollSave/model/types/ScrollSaveSchema';
-import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage/model/types';
+import { ScrollSaveSchems } from '@/features/ScrollSave';
+import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { ProfileSchema } from '@/features/editableProfileCard';
 

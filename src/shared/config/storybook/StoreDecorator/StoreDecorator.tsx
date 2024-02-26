@@ -2,11 +2,11 @@ import {
     ReactNode,
 } from 'react';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
-import { addCommentFormReducer } from '@/features/AddCommentForm/model/slices/addCommentFormSlice';
-import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice';
+import { articleDetailsReducer } from '@/entities/Article';
+import { addCommentFormReducer } from '@/features/AddCommentForm';
+import { loginReducer } from '@/features/AuthByUsername';
 import { profileReducer } from '@/features/editableProfileCard';
-import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slices';
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage';
 import { ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 const defaultReducers: ReducerList = {

@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { Navigate, Router, useLocation } from 'react-router-dom';
-import { UserRole } from '@/entities/User/model/consts/consts';
+import { Navigate, useLocation } from 'react-router-dom';
 import {
-    getUserAuthData, getUserRoles, isUserAdmin, isUserManager,
+    UserRole,
+    getUserAuthData, getUserRoles,
 } from '@/entities/User';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 

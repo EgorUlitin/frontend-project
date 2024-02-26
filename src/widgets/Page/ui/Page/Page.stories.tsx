@@ -4,7 +4,7 @@ import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/Route
 import { Page } from './Page';
 
 const meta: Meta<typeof Page> = {
-    title: 'shared/Page',
+    title: 'widgets/Page',
     component: Page,
     decorators: [
         (Story) => (
