@@ -79,6 +79,10 @@ module.exports = {
             testFilesPatterns: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx'],
         }],
         'ulitin-frontend-plugin/path-checker': ['error', { alias: '@' }],
+        'ulitin-frontend-plugin/fsd-layer-imports': ['error', {
+            alias: '@',
+            ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+        }],
     },
     globals: {
         __IS_DEV__: true,

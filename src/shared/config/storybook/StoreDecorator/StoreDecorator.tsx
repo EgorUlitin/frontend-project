@@ -1,3 +1,4 @@
+/* eslint-disable ulitin-frontend-plugin/fsd-layer-imports */
 import {
     ReactNode,
 } from 'react';
