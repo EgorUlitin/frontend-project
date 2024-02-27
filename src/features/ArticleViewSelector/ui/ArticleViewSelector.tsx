@@ -3,8 +3,8 @@ import ListIcon from '@/shared/assets/icons/list-24-24.svg?react';
 import TilesIcon from '@/shared/assets/icons/tiled-24-24.svg?react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleView } from '@/entities/Article';
-import { Icon } from '@/shared/ui/Icon/Icon';
-import Button, { ButtonTheme } from '@/shared/ui/Button/Button';
+import { Icon } from '@/shared/ui/Icon';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import cls from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {

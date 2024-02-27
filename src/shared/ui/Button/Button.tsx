@@ -29,7 +29,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;
 }
 
-const Button = memo(({
+export const Button = memo(({
     className,
     children,
     theme = ButtonTheme.OUTLINE,
@@ -58,5 +58,3 @@ const Button = memo(({
         </button>
     );
 });
-
-export default Button;
