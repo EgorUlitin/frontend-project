@@ -84,6 +84,16 @@ const meta: Meta<typeof ArticleDetailsPage> = {
     component: ArticleDetailsPage,
     decorators: [
         (Story) => (
+            <StoreDecorator state={{
+                articleDetails: {
+                    data: article,
+                },
+            }}
+            >
+                <Story />
+            </StoreDecorator>
+        ),
+        (Story) => (
             <StyleDecorator>
                 <Story />
             </StyleDecorator>
@@ -100,17 +110,4 @@ export default meta;
 type Story = StoryObj<typeof ArticleDetailsPage>;
 
 export const Primary: Story = {
-    decorators: [
-        (Story) => (
-            <StoreDecorator state={{
-                articleDetails: {
-                    data: article,
-                },
-            }}
-            >
-                <Story />
-            </StoreDecorator>
-        ),
-
-    ],
 };

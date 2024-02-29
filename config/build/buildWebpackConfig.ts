@@ -12,9 +12,7 @@ export function buildWebpackConfig(
         mode,
         port,
         isDev,
-        apiUrl,
-        paths: { entry, build, html },
-        project,
+        paths: { entry, build },
     } = options;
     return {
         mode,
