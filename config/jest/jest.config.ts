@@ -10,6 +10,7 @@ const config = {
         __IS_DEV__: true,
         __API__: '',
         __PROJECT__: 'jest',
+        IS_REACT_ACT_ENVIRONMENT: true,
     },
     clearMocks: true,
     testEnvironment: 'jsdom',
@@ -41,6 +42,7 @@ const config = {
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, './jestEmptyComponents.tsx'),
+        '^@/(.*)': '<rootDir>/src/$1',
     },
     reporters: [
         'default',

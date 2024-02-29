@@ -34,16 +34,16 @@ export const ListBox = memo(({
         <HStack gap="4">
             {label && <span>{`${label} >`}</span>}
             <HListBox
+                disabled={readonly}
                 as="div"
                 value={value}
                 onChange={onChange}
                 className={classNames(cls.listbox, {}, [className, popupCls.popup])}
-                disabled={readonly}
             >
                 <HListBox.Button
+                    as="div"
                     className={cls.name}
                 >
-
                     <Button disabled={readonly}>
                         {value ?? defaultValue}
                     </Button>
