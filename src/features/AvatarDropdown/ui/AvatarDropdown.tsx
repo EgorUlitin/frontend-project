@@ -29,7 +29,6 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
     if (!authData) {
         return null;
     }
-    console.log(authData);
 
     return (
         <Dropdown

@@ -823,6 +823,13 @@
       "articleId": "18",
       "rate": 3,
       "id": "A08JiZV"
+    },
+    {
+      "userId": "1",
+      "articleId": "13",
+      "feedback": "asdasdasdasdasdqd",
+      "rate": 2,
+      "id": "HXrhMan"
     }
   ],
   "profile-ratings": [
