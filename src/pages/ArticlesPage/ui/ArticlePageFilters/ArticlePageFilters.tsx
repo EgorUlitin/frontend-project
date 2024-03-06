@@ -8,7 +8,7 @@ import { Input } from '@/shared/ui/Input';
 import { Card } from '@/shared/ui/Card';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { TabsItem } from '@/shared/ui/Tabs';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';

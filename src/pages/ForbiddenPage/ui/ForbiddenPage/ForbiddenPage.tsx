@@ -11,7 +11,7 @@ const ForbiddenPage = memo((props: ForbiddenPageProps) => {
 
     return (
         // eslint-disable-next-line i18next/no-literal-string
-        <Page className={classNames('', {}, [className])}>
+        <Page data-testid="ForbiddenPage" className={classNames('', {}, [className])}>
             Нет доступа к этой странице
         </Page>
     );
