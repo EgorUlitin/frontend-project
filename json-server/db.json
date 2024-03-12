@@ -715,6 +715,15 @@
         "USER"
       ],
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9kjLBwtgh1KFnjxIdQrBHy__pwKCRCF53bg&usqp=CAU"
+    },
+    {
+      "id": "3",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "USER"
+      ],
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9kjLBwtgh1KFnjxIdQrBHy__pwKCRCF53bg&usqp=CAU"
     }
   ],
   "profile": [
