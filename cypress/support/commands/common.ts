@@ -1,6 +1,6 @@
-import { User } from '@/entities/User';
-import { USER_LOCAL_STORAGE_KEY } from '../../../src/shared/const/localStorage';
 import { selectByTestId } from 'cypress/e2e/helpers/selectByTestId';
+import { User } from '../../../src/entities/User';
+import { USER_LOCAL_STORAGE_KEY } from '../../../src/shared/const/localStorage';
 
 export const login = (username: string = 'testuser', password:string = '123') => {
     cy.request({
@@ -18,7 +18,7 @@ export const login = (username: string = 'testuser', password:string = '123') =>
 
 export const getByTestId = (testId: string) => {
     return cy.get(selectByTestId(testId));
-}
+};
 
 declare global {
   namespace Cypress {
