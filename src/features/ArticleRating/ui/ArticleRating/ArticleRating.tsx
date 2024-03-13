@@ -54,6 +54,7 @@ const ArticleRating = memo(({ className, articleId }: ArticleRatingProps) => {
             rate={rating?.rate}
             onAccept={onAccept}
             onCancel={onCancel}
+            data-testid="ArticleRating"
         />
     );
 });

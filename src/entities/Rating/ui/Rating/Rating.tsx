@@ -62,12 +62,13 @@ export const Rating = memo((props: RatingProps) => {
                 placeholder={t('Ваш отзыв')}
                 value={feedback}
                 onChange={setFeedback}
+                data-testid="Rating.Input"
             />
         </>
     );
 
     return (
-        <Card className={className}>
+        <Card className={className} data-testid="Rating">
             <VStack align="center" gap="8">
                 <Text title={starsCount ? 'Спасибо за оценку' : title} />
                 <StarRating selectedStar={rate} size={40} onSelect={onSelectStarts} />
@@ -80,11 +81,13 @@ export const Rating = memo((props: RatingProps) => {
                             <Button
                                 theme={ButtonTheme.OUTLINE_RED}
                                 onClick={cancelHandler}
+                                data-testid="Rating.Cancel"
                             >
                                 {t('Закрыть')}
                             </Button>
                             <Button
                                 onClick={acceptHandler}
+                                data-testid="Rating.Accept"
                             >
                                 {t('Отправить')}
                             </Button>

@@ -18,7 +18,12 @@ interface CommentItemProps {
 export const CommentItem = memo(({ className, comment, isLoading }: CommentItemProps) => {
     if (isLoading) {
         return (
-            <VStack max gap="8" className={classNames(cls.commentitem, { [cls.loading]: isLoading }, [className])}>
+            <VStack
+                max
+                gap="8"
+                className={classNames(cls.commentitem, { [cls.loading]: isLoading }, [className])}
+                data-testid="CommentItem.Loading"
+            >
                 <HStack max gap="16" className={cls.header}>
                     <Skeleton width={30} height={30} border="50%" />
                     <Skeleton className={cls.username} width={100} height={16} />
@@ -31,7 +36,7 @@ export const CommentItem = memo(({ className, comment, isLoading }: CommentItemP
     if (!comment) return null;
 
     return (
-        <VStack max gap="8" className={classNames(cls.commentitem, {}, [className])}>
+        <VStack max gap="8" className={classNames(cls.commentitem, {}, [className])} data-testid="CommentItem">
             <AppLink to={getRouteProfile(comment.user.id)} className={cls.header}>
                 {comment.user.avatar ? <Avatar src={comment.user.avatar} size={30} /> : null}
                 <Text className={cls.username} title={comment.user.username} />

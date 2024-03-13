@@ -56,6 +56,8 @@ export const StarRating = memo(({
                         onMouseOver={onHover(startNumber)}
                         onMouseLeave={onLeave}
                         onClick={onClick(startNumber)}
+                        data-testid={`StarRating.${startNumber}`}
+                        data-selected={startNumber <= currentHoveredStar}
                     />
                 );
             })}

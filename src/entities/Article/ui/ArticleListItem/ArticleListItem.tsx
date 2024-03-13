@@ -44,7 +44,7 @@ export const ArticleListItem = memo(({
             (block) => block.type === BlockType.TEXT,
         ) as ArticleTextBlock;
         return (
-            <div className={classNames(cls.articlelistitem, {}, [className, cls[view]])}>
+            <div className={classNames(cls.articlelistitem, {}, [className, cls[view]])} data-testid="ArticleListItem">
                 <Card className={cls.card}>
                     <div className={cls.header}>
                         <Avatar size={30} src={article.user.avatar || ''} />
@@ -88,6 +88,7 @@ export const ArticleListItem = memo(({
             target={target}
             to={getRouteArticleDetails(article.id)}
             className={classNames(cls.articlelistitem, {}, [className, cls[view]])}
+            data-testid="ArticleListItem"
         >
             <Card>
                 <div className={cls.imageWrapper}>
