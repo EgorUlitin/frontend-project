@@ -23,6 +23,7 @@ describe('Пользователь заходит на страницу стат
         cy.getByTestId('CommentItem').should('have.length', 1);
     });
     it('И оставит оценку', () => {
+        // cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
         cy.getByTestId('ArticleDetails.Info');
         cy.getByTestId('Rating').scrollIntoView();
         cy.setRate(4, 'feedback');

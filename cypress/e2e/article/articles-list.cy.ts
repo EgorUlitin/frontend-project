@@ -8,4 +8,9 @@ describe('Пользователь заходит на страницу стат
         cy.getByTestId('ArticleList').should('exist');
         cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3);
     });
+    it.skip('Статьи загружаются на стабах(фикстурах)', () => {
+        cy.intercept('GET', '**/articles?*', { fixture: 'article-list.json' });
+        cy.getByTestId('ArticleList').should('exist');
+        cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3);
+    });
 });
