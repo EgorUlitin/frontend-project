@@ -757,6 +757,19 @@
       ],
       "blocks": [],
       "id": "PCoN_K2"
+    },
+    {
+      "title": "Testing article",
+      "subtitle": "testing",
+      "img": "https://www.mirea.ru/upload/iblock/7cf/vvp_rf2018_1.jpg",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "userId": "1",
+      "type": [
+        "ECONOMICS"
+      ],
+      "blocks": [],
+      "id": "uFX5TUW"
     }
   ],
   "comments": [

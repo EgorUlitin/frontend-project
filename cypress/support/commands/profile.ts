@@ -11,7 +11,7 @@ export const resetProfile = (profileId: string) => {
         url: `http://localhost:8000/profile/${profileId}`,
         headers: { Authorization: 'zxc' },
         body: {
-            id: '3',
+            id: '1',
             first: 'testuser',
             lastname: 'usertest',
             age: 666,
