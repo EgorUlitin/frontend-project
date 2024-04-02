@@ -1,7 +1,7 @@
 /**
  * For a detailed explanation regarding each configuration property, visit:
  * https://jestjs.io/docs/configuration
-*/
+ */
 
 import path from 'path';
 
@@ -24,20 +24,11 @@ const config = {
         'json',
         'node',
     ],
-    coveragePathIgnorePatterns: [
-        '/node_modules/',
-    ],
-    moduleDirectories: [
-        'node_modules',
-        'src',
-    ],
-    modulePaths: [
-        '<rootDir>src',
-    ],
+    coveragePathIgnorePatterns: ['/node_modules/'],
+    moduleDirectories: ['node_modules', 'src'],
+    modulePaths: ['<rootDir>src'],
     rootDir: '../../',
-    testMatch: [
-        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
-    ],
+    testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
     setupFilesAfterEnv: ['<rootDir>config/jest/jest-setup.ts'],
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
@@ -46,12 +37,15 @@ const config = {
     },
     reporters: [
         'default',
-        ['jest-html-reporters', {
-            publicPath: '<rootDir>/reports/unit',
-            filename: 'report.html',
-            openReport: false,
-            inlineSource: true,
-        }],
+        [
+            'jest-html-reporters',
+            {
+                publicPath: '<rootDir>/reports/unit',
+                filename: 'report.html',
+                openReport: false,
+                inlineSource: true,
+            },
+        ],
     ],
     // All imported modules in your tests should be mocked automatically
     // automock: false,

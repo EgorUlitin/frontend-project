@@ -7,19 +7,19 @@ const defaultarticle = {
     views: 1022,
     createdAt: '26.02.2022',
     userId: '1',
-    type: [
-        'ECONOMICS',
-    ],
+    type: ['ECONOMICS'],
     blocks: [],
 };
 
 export const createArtcile = (article?: Article) => {
-    return cy.request({
-        method: 'POST',
-        url: 'http://localhost:8000/articles',
-        headers: { Authorization: 'zxc' },
-        body: article ?? defaultarticle,
-    }).then((res) => res.body);
+    return cy
+        .request({
+            method: 'POST',
+            url: 'http://localhost:8000/articles',
+            headers: { Authorization: 'zxc' },
+            body: article ?? defaultarticle,
+        })
+        .then((res) => res.body);
 };
 
 export const removeArticle = (articleId: string) => {
@@ -31,10 +31,10 @@ export const removeArticle = (articleId: string) => {
 };
 
 declare global {
-  namespace Cypress {
-    interface Chainable {
-		createArtcile(article?: Article): Chainable<Article>;
-		removeArticle(articleId: string): Chainable<void>;
+    namespace Cypress {
+        interface Chainable {
+            createArtcile(article?: Article): Chainable<Article>;
+            removeArticle(articleId: string): Chainable<void>;
+        }
     }
-  }
 }

@@ -1,5 +1,8 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { getAddCommentFormError, getAddCommentFormText } from './addCommentFormSelectors';
+import {
+    getAddCommentFormError,
+    getAddCommentFormText,
+} from './addCommentFormSelectors';
 
 describe('addCommentFormSelectors.test', () => {
     test('getAddCommentFormText', () => {
@@ -8,7 +11,9 @@ describe('addCommentFormSelectors.test', () => {
                 text: 'test comment text',
             },
         };
-        expect(getAddCommentFormText(state as StateSchema)).toEqual('test comment text');
+        expect(getAddCommentFormText(state as StateSchema)).toEqual(
+            'test comment text',
+        );
     });
 
     test('getAddCommentFormError', () => {
@@ -17,6 +22,8 @@ describe('addCommentFormSelectors.test', () => {
                 error: 'test error text',
             },
         };
-        expect(getAddCommentFormError(state as StateSchema)).toEqual('test error text');
+        expect(getAddCommentFormError(state as StateSchema)).toEqual(
+            'test error text',
+        );
     });
 });

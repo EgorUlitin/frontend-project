@@ -12,9 +12,7 @@ export const initArticlesPage = createAsyncThunk<
     ThunkConfig<string>
 >(
     'articlesPage/initArticlesPage',
-    async (searchParams, {
-        getState, dispatch,
-    }) => {
+    async (searchParams, { getState, dispatch }) => {
         const inited = getArticlesPageInited(getState());
 
         if (!inited) {

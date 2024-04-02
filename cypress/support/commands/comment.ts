@@ -11,9 +11,9 @@ export const removeArticle = (articleId: string) => {
 };
 
 declare global {
-  namespace Cypress {
-    interface Chainable {
-		addComment(text: string): Chainable<void>;
+    namespace Cypress {
+        interface Chainable {
+            addComment(text: string): Chainable<void>;
+        }
     }
-  }
 }

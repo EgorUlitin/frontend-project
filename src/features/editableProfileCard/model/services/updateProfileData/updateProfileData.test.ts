@@ -19,8 +19,7 @@ describe('updateProfileData.test', () => {
     test('succes updating', async () => {
         const thunk = new TestAsyncThunk(updateProfileData, {
             profile: {
-                form:
-                    data,
+                form: data,
             },
         });
         thunk.api.put.mockReturnValue(Promise.resolve({ data }));
@@ -34,8 +33,7 @@ describe('updateProfileData.test', () => {
     test('error updating', async () => {
         const thunk = new TestAsyncThunk(updateProfileData, {
             profile: {
-                form:
-                    data,
+                form: data,
             },
         });
         thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
@@ -44,16 +42,13 @@ describe('updateProfileData.test', () => {
         expect(thunk.api.put).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');
 
-        expect(result.payload).toEqual([
-            ValidateProfileError.SERVER_ERROR,
-        ]);
+        expect(result.payload).toEqual([ValidateProfileError.SERVER_ERROR]);
     });
 
     test('validate error updating', async () => {
         const thunk = new TestAsyncThunk(updateProfileData, {
             profile: {
-                form:
-                    { ...data, age: undefined },
+                form: { ...data, age: undefined },
             },
         });
         const result = await thunk.callThunk();

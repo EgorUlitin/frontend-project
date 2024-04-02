@@ -1,16 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-const initialState = {
-
-};
+const initialState = {};
 
 export const ForbiddenPageSlice = createSlice({
     name: 'ForbiddenPage',
     initialState,
     reducers: {
-        template: (state, action: PayloadAction<string>) => {
-
-        },
+        template: (state, action: PayloadAction<string>) => {},
     },
     // extraReducers: (builder) => {
     //     builder

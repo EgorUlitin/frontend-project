@@ -4,11 +4,7 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: [
-        'plugin:react/recommended',
-        'airbnb',
-        'plugin:i18next/recommended',
-    ],
+    extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended', 'prettier'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -23,13 +19,10 @@ module.exports = {
         'i18next',
         'react-hooks',
         'ulitin-frontend-plugin',
-        "unused-imports"
+        'unused-imports',
     ],
     rules: {
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
-        indent: [2, 4],
-        "unused-imports/no-unused-imports": "error",
+        'unused-imports/no-unused-imports': 'error',
         'react/jsx-filename-extension': [
             2,
             { extensions: ['.js', '.jsx', '.tsx'] },
@@ -49,20 +42,19 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute:
-                    [
-                        'data-testid',
-                        'to',
-                        'target',
-                        'border',
-                        'direction',
-                        'justify',
-                        'align',
-                        'gap',
-                        'role',
-                        'as',
-                        'defaultValue',
-                    ],
+                ignoreAttribute: [
+                    'data-testid',
+                    'to',
+                    'target',
+                    'border',
+                    'direction',
+                    'justify',
+                    'align',
+                    'gap',
+                    'role',
+                    'as',
+                    'defaultValue',
+                ],
             },
         ],
         'max-len': ['error', { ignoreComments: true, code: 126 }],
@@ -76,15 +68,26 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
-        'ulitin-frontend-plugin/public-api-imports': ['error', {
-            alias: '@',
-            testFilesPatterns: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx'],
-        }],
+        'ulitin-frontend-plugin/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: [
+                    '**/*.test.ts',
+                    '**/*.test.ts',
+                    '**/StoreDecorator.tsx',
+                ],
+            },
+        ],
         'ulitin-frontend-plugin/path-checker': ['error', { alias: '@' }],
-        'ulitin-frontend-plugin/fsd-layer-imports': ['error', {
-            alias: '@',
-            ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
-        }],
+        'ulitin-frontend-plugin/fsd-layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
+        "react/jsx-max-props-per-line": ['error', { "maximum": 4 }]
     },
     globals: {
         __IS_DEV__: true,

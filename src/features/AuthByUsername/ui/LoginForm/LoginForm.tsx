@@ -5,7 +5,10 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Text, TextTheme } from '@/shared/ui/Text';
 import { Input } from '@/shared/ui/Input';
-import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducerList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getloginUsername';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
@@ -16,7 +19,7 @@ import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
 
 interface LoginFormProps {
-	className?: string;
+    className?: string;
     onSuccess: () => void;
 }
 
@@ -33,13 +36,19 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     const isLoading = useSelector(getLoginLoading);
     const error = useSelector(getLoginError);
 
-    const onChangeUsername = useCallback((username: string) => {
-        dispatch(loginActions.setUsername(username));
-    }, [dispatch]);
+    const onChangeUsername = useCallback(
+        (username: string) => {
+            dispatch(loginActions.setUsername(username));
+        },
+        [dispatch],
+    );
 
-    const onChangePassword = useCallback((password: string) => {
-        dispatch(loginActions.setPassword(password));
-    }, [dispatch]);
+    const onChangePassword = useCallback(
+        (password: string) => {
+            dispatch(loginActions.setPassword(password));
+        },
+        [dispatch],
+    );
 
     const onLoginClick = useCallback(async () => {
         const result = await dispatch(loginByUsename({ username, password }));
@@ -49,9 +58,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     }, [onSuccess, dispatch, password, username]);
 
     return (
-        <DynamicModuleLoader
-            reducers={initialRedusers}
-        >
+        <DynamicModuleLoader reducers={initialRedusers}>
             <div className={classNames(cls.loginform, {}, [className])}>
                 <Text title={t('Форма авторизации')} />
                 {error && (

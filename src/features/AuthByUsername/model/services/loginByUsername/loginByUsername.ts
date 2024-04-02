@@ -4,8 +4,8 @@ import { User, userActions } from '@/entities/User';
 import { USER_LOCAL_STORAGE_KEY } from '@/shared/const/localStorage';
 
 interface LoginByUsernameProps {
-	username: string;
-	password: string;
+    username: string;
+    password: string;
 }
 
 export const loginByUsename = createAsyncThunk<
@@ -22,7 +22,10 @@ export const loginByUsename = createAsyncThunk<
                 throw new Error();
             }
 
-            localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data));
+            localStorage.setItem(
+                USER_LOCAL_STORAGE_KEY,
+                JSON.stringify(response.data),
+            );
             dispatch(userActions.setAuthData(response.data));
 
             // extra.navigate('/about');

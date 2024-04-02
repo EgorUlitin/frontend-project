@@ -11,12 +11,21 @@ describe('Пользователь заходит на страницу проф
         cy.resetProfile(profileId);
     });
     it('Профиль успешно загрузился', () => {
-        cy.getByTestId('ProfileCard.Firstname').should('have.value', 'testuser');
+        cy.getByTestId('ProfileCard.Firstname').should(
+            'have.value',
+            'testuser',
+        );
     });
     it('Редактирует его', () => {
         cy.updateProfile('newtestuserfirstname', 'newtestusersecondname');
-        cy.getByTestId('ProfileCard.Firstname').should('have.value', 'newtestuserfirstname');
-        cy.getByTestId('ProfileCard.Secondname').should('have.value', 'newtestusersecondname');
+        cy.getByTestId('ProfileCard.Firstname').should(
+            'have.value',
+            'newtestuserfirstname',
+        );
+        cy.getByTestId('ProfileCard.Secondname').should(
+            'have.value',
+            'newtestusersecondname',
+        );
     });
     // it('passes', () => {
 

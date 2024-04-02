@@ -1,5 +1,8 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { getArticleDetailsCommentsIsLoading, getArticleDetailsCommentsError } from './comments';
+import {
+    getArticleDetailsCommentsIsLoading,
+    getArticleDetailsCommentsError,
+} from './comments';
 
 describe('articleDetailsComments.test', () => {
     test('getAddCommentFormText should return true', () => {
@@ -8,7 +11,9 @@ describe('articleDetailsComments.test', () => {
                 comments: { isLoading: true },
             },
         };
-        expect(getArticleDetailsCommentsIsLoading(state as StateSchema)).toEqual(true);
+        expect(
+            getArticleDetailsCommentsIsLoading(state as StateSchema),
+        ).toEqual(true);
     });
 
     test('getAddCommentFormError should return error', () => {
@@ -19,6 +24,8 @@ describe('articleDetailsComments.test', () => {
                 },
             },
         };
-        expect(getArticleDetailsCommentsError(state as StateSchema)).toEqual('test error');
+        expect(getArticleDetailsCommentsError(state as StateSchema)).toEqual(
+            'test error',
+        );
     });
 });

@@ -36,14 +36,17 @@ export const Rating = memo((props: RatingProps) => {
     const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
-    const onSelectStarts = useCallback((selectedStarsCount: number) => {
-        setStarsCount(selectedStarsCount);
-        if (hasFeedback) {
-            setIsOpenModal(true);
-        } else {
-            onAccept?.(selectedStarsCount, feedback);
-        }
-    }, [feedback, hasFeedback, onAccept]);
+    const onSelectStarts = useCallback(
+        (selectedStarsCount: number) => {
+            setStarsCount(selectedStarsCount);
+            if (hasFeedback) {
+                setIsOpenModal(true);
+            } else {
+                onAccept?.(selectedStarsCount, feedback);
+            }
+        },
+        [feedback, hasFeedback, onAccept],
+    );
 
     const acceptHandler = useCallback(() => {
         setIsOpenModal(false);
@@ -71,7 +74,11 @@ export const Rating = memo((props: RatingProps) => {
         <Card className={className} data-testid="Rating">
             <VStack align="center" gap="8">
                 <Text title={starsCount ? 'Спасибо за оценку' : title} />
-                <StarRating selectedStar={rate} size={40} onSelect={onSelectStarts} />
+                <StarRating
+                    selectedStar={rate}
+                    size={40}
+                    onSelect={onSelectStarts}
+                />
             </VStack>
             <BrowserView>
                 <Modal isOpen={isModalOpen} lazy>
@@ -109,7 +116,6 @@ export const Rating = memo((props: RatingProps) => {
                     </VStack>
                 </Drawer>
             </MobileView>
-
         </Card>
     );
 });

@@ -21,13 +21,15 @@ describe('validateProfileData.test', () => {
     test('with country error', async () => {
         const result = validateProfileData({ ...data, country: undefined });
 
-        expect(result).toEqual([
-            ValidateProfileError.INCORRECT_COUNTRY,
-        ]);
+        expect(result).toEqual([ValidateProfileError.INCORRECT_COUNTRY]);
     });
 
     test('with errors', async () => {
-        const result = validateProfileData({ ...data, age: undefined, country: undefined });
+        const result = validateProfileData({
+            ...data,
+            age: undefined,
+            country: undefined,
+        });
         expect(result).toEqual([
             ValidateProfileError.INCORRECT_AGE,
             ValidateProfileError.INCORRECT_COUNTRY,
